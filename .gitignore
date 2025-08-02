@@ -1,0 +1,98 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+.pytest_cache/
+*.egg-info/
+.coverage
+htmlcov/
+.tox/
+.nox/
+*.cover
+*.log
+.git
+.mypy_cache
+.pytest_cache
+.hypothesis
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+*.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+.settings/
+*.sublime-project
+*.sublime-workspace
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Docker
+.docker/
+
+# Project specific
+tmp/
+temp/
+logs/
+*.db
+*.sqlite
+*.sqlite3
+
+# Credentials
+credentials/
+*.pem
+*.key
+*.crt
+*.json
+!package.json
+!package-lock.json
+!tsconfig.json
+
+# Agno specific
+agno_logs/
+.agno/
+
+# Local development
+.local/
+scratch/
+test_local.py
+playground_simple.py
+
+# Backups
+*.bak
+*.backup
+*.old
+
+# Archives
+*.zip
+*.tar.gz
+*.rar
+
+# Output files
+output/
+dist/
+build/

@@ -1,0 +1,13 @@
+services:
+  bot:
+    build: .
+    container_name: bot_agno
+    #network_mode: host
+    ports:
+      - "8000:8000"
+      - "7777:7777"
+    env_file:
+      - .env
+    volumes:
+      - ./src:/app/src
+    restart: unless-stopped
