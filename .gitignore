@@ -28,6 +28,7 @@ htmlcov/
 .env.local
 .env.*.local
 *.env
+!.env.example
 
 # IDE
 .vscode/
@@ -54,6 +55,13 @@ desktop.ini
 # Docker
 .docker/
 
+# PostgreSQL
+postgres/data/
+postgres/pgdata/
+*.sql.backup
+*.dump
+*.pgdump
+
 # Project specific
 tmp/
 temp/
@@ -75,12 +83,22 @@ credentials/
 # Agno specific
 agno_logs/
 .agno/
+agent_storage.db
+agent_sessions.db
+memory.db
 
 # Local development
 .local/
 scratch/
 test_local.py
 playground_simple.py
+playground_test.py
+debug_*.py
+test_*.py
+!src/debug_sessions.py
+!src/test_storage.py
+!src/test_session_retrieval.py
+!src/check_playground_api.py
 
 # Backups
 *.bak
@@ -96,3 +114,6 @@ playground_simple.py
 output/
 dist/
 build/
+
+# Keep SQL init scripts
+!postgres/init/*.sql

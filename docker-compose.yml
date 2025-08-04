@@ -1,8 +1,8 @@
+# docker-compose.yml
 services:
   bot:
     build: .
     container_name: bot_agno
-    #network_mode: host
     ports:
       - "8000:8000"
       - "7777:7777"
@@ -11,3 +11,38 @@ services:
     volumes:
       - ./src:/app/src
     restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - bot_network
+
+  postgres:
+    image: postgres:16-alpine
+    container_name: bot_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: agno_user
+      POSTGRES_PASSWORD: devpassword123
+      POSTGRES_DB: bot_agno
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - ./postgres/data:/var/lib/postgresql/data
+      - ./postgres/init:/docker-entrypoint-initdb.d:ro
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U agno_user -d bot_agno"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - bot_network
+
+networks:
+  bot_network:
+    name: agno_network
+    driver: bridge
+
+volumes:
+  postgres_data:

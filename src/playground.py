@@ -17,8 +17,10 @@ agent = Agent(
         "Use linguagem profissional mas amigável", 
         "Seja concisa nas respostas"
     ],
-    markdown=True
-)
+    markdown=True,
+    monitoring=True,
+    debug_mode=True
+    )
 
 # Criar playground
 app = Playground(agents=[agent]).get_app()
